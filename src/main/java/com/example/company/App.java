@@ -2,7 +2,6 @@ package com.example.company;
 
 import java.io.IOException;
 
-import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -16,7 +15,7 @@ public class App
     {
         System.out.println( "Hello World!" );
 
-        Document doc = Jsoup.connect("http://example.com/").get();
+        Document doc = Jsoup.connect("https://google.ca/").get();
         System.out.println(doc.title());
 
         
