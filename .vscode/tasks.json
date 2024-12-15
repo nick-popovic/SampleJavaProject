@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Java Project",
+            "type": "shell",
+            "command": "mvn clean package",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run JAR",
+            "type": "shell",
+            "command": "java -jar target/samplejavaproject-1.0-SNAPSHOT.jar",
+            "dependsOn": "Build Java Project",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}

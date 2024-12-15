@@ -1,3 +1,13 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run Java Application",
+            "request": "launch",
+            "mainClass": "com.example.company.App",
+            "projectName": "samplejavaproject"
+        }
+    ]
 }
