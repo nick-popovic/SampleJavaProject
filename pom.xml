@@ -4,11 +4,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.example.company</groupId>
+    <groupId>com.example.company</groupId>
   <artifactId>samplejavaproject</artifactId>
   <version>1.0-SNAPSHOT</version>
-
-  <name>samplejavaproject</name>
+  
+  <name>demo-project</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -19,14 +19,6 @@
   </properties>
 
   <dependencies>
-
-<dependency>
-  <!-- jsoup HTML parser library @ https://jsoup.org/ -->
-  <groupId>org.jsoup</groupId>
-  <artifactId>jsoup</artifactId>
-  <version>1.18.3</version>
-</dependency>
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -59,13 +51,6 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
-          <configuration>
-            <archive>
-              <manifest>
-                <mainClass>com.example.company.App</mainClass>
-              </manifest>
-            </archive>
-          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
@@ -89,21 +74,25 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.5.1</version>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>com.example.company.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
         <executions>
           <execution>
+            <id>make-assembly</id>
             <phase>package</phase>
             <goals>
-              <goal>shade</goal>
+              <goal>single</goal>
             </goals>
-            <configuration>
-              <transformers>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>com.example.company.App</mainClass>
-                </transformer>
-              </transformers>
-            </configuration>
           </execution>
         </executions>
       </plugin>
