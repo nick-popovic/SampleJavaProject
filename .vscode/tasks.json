@@ -2,23 +2,20 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build Java Project",
+            "label": "maven-compile",
             "type": "shell",
-            "command": "mvn clean package",
+            "command": "mvn compile",
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
         },
         {
-            "label": "Run JAR",
+            "label": "maven-package",
             "type": "shell",
-            "command": "java -jar target/samplejavaproject-1.0-SNAPSHOT.jar",
-            "dependsOn": "Build Java Project",
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            }
+            "command": "mvn clean package",
+            "group": "build",
+            "problemMatcher": []
         }
     ]
 }
